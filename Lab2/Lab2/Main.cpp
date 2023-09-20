@@ -3,16 +3,11 @@
 #include <time.h>
 #include "Header.h"
 
-#define CLOCKS_PER_SEC 1000
 
 int main(void)
 {
-	setvbuf(stdin, NULL, _IONBF, 0);
-	setvbuf(stdout, NULL, _IONBF, 0);
 
 	clock_t start, end; // объ€вл€ем переменные дл€ определени€ времени выполнени€
-
-	
 
 	double timeOfProgram;
 
@@ -53,7 +48,5 @@ int main(void)
 	printf("working hours of the program with array %dx%d = %fs\n", 10000, 10000, timeOfProgram);
 
 	
-	return(0);
-
-
+	return 0;
 }

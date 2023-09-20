@@ -64,8 +64,3 @@ int fun1(int size)
 	}
 	return NULL;
 }
-
-int fun2(int size);
-{
-
-}
