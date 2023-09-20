@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "Header.h"
 
-#define TIME_PER_SEC 1000
+#define CLOCKS_PER_SEC 1000
 
 int main(void)
 {
@@ -11,50 +12,48 @@ int main(void)
 
 	clock_t start, end; // объявляем переменные для определения времени выполнения
 
-	start = clock();
+	
 
 	double timeOfProgram;
-	int i = 0, j = 0, r;
-	int a[200][200], b[200][200], c[200][200], elem_c;
 
-	srand(time(NULL)); // инициализируем параметры генератора случайных чисел
-	while (i < 200)
-	{
-		while (j < 200)
-		{
-			a[i][j] = rand() % 100 + 1; // заполняем массив случайными числами
-			j++;
-		}
-		i++;
-	}
-	srand(time(NULL)); // инициализируем параметры генератора случайных чисел
-	i = 0; j = 0;
-	while (i < 200)
-	{
-		while (j < 200)
-		{
-			b[i][j] = rand() % 100 + 1; // заполняем массив случайными числами
-			j++;
-		}
-		i++;
-	}
-
-	for (i = 0; i < 200; i++)
-	{
-		for (j = 0; j < 200; j++)
-		{
-			elem_c = 0;
-			for (r = 0; r < 200; r++)
-			{
-				elem_c = elem_c + a[i][r] * b[r][j];
-				c[i][j] = elem_c;
-			}
-		}
-	}
-
+	start = clock();
+	fun(100);
 	end = clock();
-	timeOfProgram = (double)(end - start) / TIME_PER_SEC;
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("working hours of the program with array %dx%d = %fs\n",100, 100, timeOfProgram);
+	start = clock();
+	fun(200);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("working hours of the program with array %dx%d = %fs\n", 200, 200, timeOfProgram);
+	start = clock();
+	fun(400);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("working hours of the program with array %dx%d = %fs\n", 400, 400, timeOfProgram);
+	start = clock();
+	fun(1000);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("working hours of the program with array %dx%d = %fs\n", 1000, 1000, timeOfProgram);
+	start = clock();
+	fun(2000);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("working hours of the program with array %dx%d = %fs\n", 2000, 2000, timeOfProgram);
+	start = clock();
+	fun(4000);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("working hours of the program with array %dx%d = %fs\n", 4000, 4000, timeOfProgram);
+	start = clock();
+	fun(10000);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("working hours of the program with array %dx%d = %fs\n", 10000, 10000, timeOfProgram);
 
-	printf("working hours of the program = %fs", timeOfProgram);
+	
 	return(0);
+
+
 }

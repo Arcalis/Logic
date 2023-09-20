@@ -1,0 +1,12 @@
+﻿  fun.cpp
+C:\Users\Arcalis\Documents\GitHub\Logic\Lab2\Lab2\fun.cpp(31,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Arcalis\Documents\GitHub\Logic\Lab2\Lab2\fun.cpp(41,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Arcalis\Documents\GitHub\Logic\Lab2\Lab2\fun.cpp(11,9): warning C4101: timeOfProgram: неиспользованная локальная переменная
+  Main.cpp
+C:\Users\Arcalis\Documents\GitHub\Logic\Lab2\Lab2\Main.cpp(6,1): warning C4005: CLOCKS_PER_SEC: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\time.h(53): message : см. предыдущее определение "CLOCKS_PER_SEC"
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 6 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  Lab2.vcxproj -> C:\Users\Arcalis\Documents\GitHub\Logic\Lab2\x64\Release\Lab2.exe
