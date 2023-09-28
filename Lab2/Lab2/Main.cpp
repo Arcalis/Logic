@@ -6,9 +6,15 @@
 
 int main(void)
 {
-	clock_t start, end, end2; // объявляем переменные для определения времени выполнения
+	clock_t start, end; // объявляем переменные для определения времени выполнения
+	
+	int** a = (int**)malloc(25000 * sizeof(int*));
+	for (int i = 0; i < 25000; i++)
+	{
+		a[i] = (int*)malloc(25000 * sizeof(int));
+	}
 
-	double timeOfProgram, timeOfProgram2;
+	double timeOfProgram;
 
 	/*start = clock();
 	fun1(100);
@@ -46,38 +52,99 @@ int main(void)
 	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
 	printf("working hours of the program with array %dx%d = %fs\n", 10000, 10000, timeOfProgram);*/
 
+	
 	printf("\n\nExercise2\n"); //Задание 2.1
-	start = clock();
-	end = fun2(50000);
-	end2 = clock();
-	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
-	timeOfProgram2 = (double)(end2 - start) / CLOCKS_PER_SEC;
-	printf("working hours of the program with array %dx%d:\nsort of Shell = %fs\nquick sort = %fs", 50000, 50000, timeOfProgram, timeOfProgram2);
 
-	printf("\n\nExercise3\n"); //Задание 2.2
 	start = clock();
-	end = fun3(50000);
-	end2 = clock();
+	**a = fun2(25000);
+	qsort(*a, 25000, sizeof(int), compare);
+	end = clock();
 	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
-	timeOfProgram2 = (double)(end2 - start) / CLOCKS_PER_SEC;
-	printf("working hours of the program with array %dx%d:\nsort of Shell = %fs\nquick sort = %fs", 50000, 50000, timeOfProgram, timeOfProgram2);
+	printf("Working hours of the program with array %dx%d:\nquick sort = %fs", 25000, 25000, timeOfProgram);
+
+	start = clock();
+	**a = fun2(25000);
+	shell(*a, 25000);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("\nSort of Shell = %fs", timeOfProgram);
+
+	start = clock();
+	**a = fun2(25000);
+	qs(*a, 0, 25000 - 1);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("\nStandart quick sort = %fs", timeOfProgram);
+
+	
+	printf("\n\nExercise3\n"); //Задание 2.2
+	
+	start = clock();
+	**a = fun3(25000);
+	qsort(*a, 25000, sizeof(int), compare);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Working hours of the program with array %dx%d:\nquick sort = %fs", 25000, 25000, timeOfProgram);
+
+	start = clock();
+	**a = fun3(25000);
+	shell(*a, 25000);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("\nSort of Shell = %fs", timeOfProgram);
+
+	start = clock();
+	**a = fun3(25000);
+	qs(*a, 0, 25000 - 1);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("\nStandart quick sort = %fs", timeOfProgram);
+
 
 	printf("\n\nExercise4\n"); //Задание 2.3
+
 	start = clock();
-	end = fun4(50000);
-	end2 = clock();
+	**a = fun4(25000);
+	qsort(*a, 25000, sizeof(int), compare);
+	end = clock();
 	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
-	timeOfProgram2 = (double)(end2 - start) / CLOCKS_PER_SEC;
-	printf("working hours of the program with array %dx%d:\nsort of Shell = %fs\nquick sort = %fs", 50000, 50000, timeOfProgram, timeOfProgram2);
+	printf("Working hours of the program with array %dx%d:\nquick sort = %fs", 25000, 25000, timeOfProgram);
+
+	start = clock();
+	**a = fun4(25000);
+	shell(*a, 25000);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("\nSort of Shell = %fs", timeOfProgram);
+
+	start = clock();
+	**a = fun4(25000);
+	qs(*a, 0, 25000 - 1);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("\nStandart quick sort = %fs", timeOfProgram);
 
 	printf("\n\nExercise5\n"); //Задание 2.4
 	start = clock();
-	end = fun5(50000);
-	end2 = clock();
+	**a = fun5(25000);
+	qsort(*a, 25000, sizeof(int), compare);
+	end = clock();
 	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
-	timeOfProgram2 = (double)(end2 - start) / CLOCKS_PER_SEC;
-	printf("working hours of the program with array %dx%d:\nsort of Shell = %fs\nquick sort = %fs", 50000, 50000, timeOfProgram, timeOfProgram2);
+	printf("Working hours of the program with array %dx%d:\nquick sort = %fs", 25000, 25000, timeOfProgram);
 
+	start = clock();
+	**a = fun5(25000);
+	shell(*a, 25000);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("\nSort of Shell = %fs", timeOfProgram);
+
+	start = clock();
+	**a = fun5(25000);
+	qs(*a, 0, 25000 - 1);
+	end = clock();
+	timeOfProgram = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("\nStandart quick sort = %fs", timeOfProgram);
 
 	return 0;
 }

@@ -1,3 +1,7 @@
-﻿  Создание кода
-c:\users\arcalis\documents\github\logic\lab2\lab2\main.cpp : fatal error C1301: ошибка при обращении к базе данных программы x64\Release\Lab2.ipdb, недопустимый формат, удалите ее и повторите построение
-LINK : fatal error LNK1257: не удалось создать код
+﻿  Main.cpp
+  Создание кода
+  6 of 12 functions (50.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Lab2.vcxproj -> C:\Users\Arcalis\Documents\GitHub\Logic\Lab2\x64\Release\Lab2.exe

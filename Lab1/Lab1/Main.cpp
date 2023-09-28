@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 
 void excercise1();
@@ -37,7 +38,7 @@ void excercise1()
 		}
 	}
 
-	printf("1-%d\n", max - min);
+	printf("excercise1-%d\n\n", max - min);
 }
 
 void excercise2()
@@ -48,11 +49,11 @@ void excercise2()
 	{
 		Arr[i] = rand() % 100;
 	}
-
-	printf("Arr: ");
+	printf("excercise2-");
+	printf("Arr:\n");
 	for (int i = 0; i < 10; i++)
 	{
-		printf("2-\n%d\n", Arr[i]);
+		printf("[%d]", Arr[i]);
 	}
 
 }
@@ -61,13 +62,14 @@ void excercise3()
 {
 	int* Arr;
 	int n;
-	scanf_s("Enter the size of array:%d", &n);
+	printf_s("\n\nexcercise3 - \nEnter the size of array:");
+	scanf_s("%d", &n);
 	Arr = (int*)malloc(n * 4);
 
 	for (int i = 0; i < n; i++)
 	{
 		Arr[i] = i;
-		printf_s("3-\n[%d]\n", Arr[i]);
+		printf_s("[%d]", Arr[i]);
 	}
 }
 
@@ -75,18 +77,20 @@ void excercise4()
 {
 	int result = 0;
 	int Arr[3][3];
+	printf("\n\nexcercise4-\n");
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
 			Arr[i][j] = i + j;
 			result += Arr[i][j];
-			printf("%d", Arr[i][j]);
+			printf("[%d]", Arr[i][j]);
 		}
-		printf("4-result(%d) = %d", i, result);
+		printf(" result(%d) = %d", i, result);
+		printf("\n");
 		result = 0;
-		printf("/n");
 	}
+	printf("\n");
 }
 
 void excercise5()
@@ -95,9 +99,29 @@ void excercise5()
 	{
 		char Name[20];
 		char SecondName[20];
+		char Facult[20];
+		char Group[20];
 	}Student;
 
-	Student student1, student2, student3;
-	//student1.Name = "George";
-	//student1.SecondName = "Chomic";
+	Student student[5];
+	student[0] = {"Alexsandr","Genadyevich", "FVT", "22VVP1"};
+	student[1] = {"Georgiy","Ivanovich", "FITE", "20VE3"};
+	student[2] = {"Dmitriy","Pushkin", "FVT", "22VV1"};
+	student[3] = {"Maria","Avdeeva", "FITE", "19CC2"};
+	student[4] = {"Evgeniy","Leontyev", "FVT", "23VV3"};
+
+	char name[20];
+	char secondName[20];
+
+	printf("Excersise5:\nEnter name and second name of student:\n");
+	getchar();
+	gets_s(name);
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (((strcmp(student[i].Name, name))==0))
+		{
+			printf("Student %s %s from facult %s and from group %s", student[i].Name, student[i].SecondName, student[i].Facult, student[i].Group);
+		}
+	}
 }

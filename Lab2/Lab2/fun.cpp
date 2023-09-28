@@ -85,10 +85,7 @@ int fun2(int size)
 		i++;
 	}
 
-	shell(*a, size);
-	clock_t end = clock();
-	qs(*a, 0,size-1);
-	return end;
+	return **a;
 }
 
 int fun3(int size)
@@ -110,10 +107,7 @@ int fun3(int size)
 		i++;
 	}
 
-	shell(*a, size);
-	clock_t end = clock();
-	qs(*a, 0, size - 1);
-	return end;
+	return **a;
 }
 
 int fun4(int size)
@@ -135,10 +129,7 @@ int fun4(int size)
 		i++;
 	}
 
-	shell(*a, size);
-	clock_t end = clock();
-	qs(*a, 0, size - 1);
-	return end;
+	return **a;
 }
 
 int fun5(int size)
@@ -164,36 +155,12 @@ int fun5(int size)
 		}
 	}
 
-	shell(*a, size);
-	clock_t end = clock();
-	qs(*a, 0, size - 1);
-	return end;
+	return **a;
 }
 
-int fun6(int size)
+int compare(const void* x1, const void* x2)   // функци€ сравнени€ элементов массива
 {
-	int** a = (int**)malloc(size * sizeof(int*));
-	for (int i = 0; i < size; i++)
-	{
-		a[i] = (int*)malloc(size * sizeof(int));
-	}
-
-	int i = 0, j = 0;
-	srand(time(NULL)); // инициализируем параметры генератора случайных чисел
-	while (i < size)
-	{
-		while (j < size)
-		{
-			a[i][j] = rand() % 100 + 1; // заполн€ем массив случайными числами
-			j++;
-		}
-		i++;
-	}
-
-	shell(*a, size);
-	clock_t end = clock();
-	qs(*a, 0, size - 1);
-	return end;
+	return (*(int*)x1 - *(int*)x2);
 }
 
 void shell(int* items, int count)
