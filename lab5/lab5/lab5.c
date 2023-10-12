@@ -59,54 +59,58 @@ void printMatrix(int matrix[SIZE][SIZE]) {
     }
 }
 
-int GenerateIncidenceMatrix(int matrix[SIZE][SIZE], int countOfEdges)
-{
-    int** incMatrix = (int**)malloc(SIZE * sizeof(int*));
-    for (int i = 0; i < SIZE; i++)
-    {
-        incMatrix[i] = (int*)malloc(countOfEdges * sizeof(int));
-    }
-
-    int curEdge = 0;
-
-    for (int i = 0; i < SIZE; i++)
-    {
-        for (int j = 0; j < countOfEdges; j++)
-        {
-            incMatrix[i][j] = 0;
-        }
-    }
-
-    for (int i = 0; i < SIZE; i++)
-    {
-        for (int j = i; j < SIZE; j++)
-        {
-            if (matrix[i][j] == 1)
-            {
-                incMatrix[i][curEdge] = 1;
-                incMatrix[j][curEdge] = 1;
-                curEdge++;
-            }
-        }
-    }
-
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < countOfEdges; j++) {
-            printf("%d ", incMatrix[i][j]);
-        }
-        printf("\n");
-    }
-    return **incMatrix;
-}
+//int GenerateIncidenceMatrix(int matrix[SIZE][SIZE], int countOfEdges)
+//{
+//    int** incMatrix = (int**)malloc(SIZE * sizeof(int*));
+//    for (int i = 0; i < SIZE; i++)
+//    {
+//        incMatrix[i] = (int*)malloc(countOfEdges * sizeof(int));
+//    }
+//
+//    int curEdge = 0;
+//
+//    for (int i = 0; i < SIZE; i++)
+//    {
+//        for (int j = 0; j < countOfEdges; j++)
+//        {
+//            incMatrix[i][j] = 0;
+//        }
+//    }
+//
+//    for (int i = 0; i < SIZE; i++)
+//    {
+//        for (int j = i; j < SIZE; j++)
+//        {
+//            if (matrix[i][j] == 1)
+//            {
+//                incMatrix[i][curEdge] = 1;
+//                incMatrix[j][curEdge] = 1;
+//                curEdge++;
+//            }
+//        }
+//    }
+//
+//    for (int i = 0; i < SIZE; i++) {
+//        for (int j = 0; j < countOfEdges; j++) {
+//            printf("%d ", incMatrix[i][j]);
+//        }
+//        printf("\n");
+//    }
+//    return **incMatrix;
+//}
 
 int sizeOfIncGraph(int **incMatrix, int countOfEdges){
     int N = 0;
     int count = 0;
-    for (int i = 0; i < countOfEdges; i++) {
-        for (int j = 0; i < SIZE; i++) {
-            if (incMatrix[j][i] == 1) N++;
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < countOfEdges; j++) {
+            if (incMatrix[i][j] == 1) {
+                N++;
+            }         
         }
-        if (N==2) count++;
+        if (N == 2){
+            count++;
+        }
         N = 0;
     }
     return count;
@@ -146,14 +150,44 @@ int main() {
     
 
     //Часть 2
+    //int incMatrix = GenerateIncidenceMatrix(matrix, count);
     int** incMatrix = (int**)malloc(SIZE * sizeof(int*));
     for (int i = 0; i < SIZE; i++)
     {
         incMatrix[i] = (int*)malloc(count * sizeof(int));
     }
-    **incMatrix = GenerateIncidenceMatrix(matrix, count);
-    printf("Size of graf = %d\n\n", sizeOfIncGraph(**incMatrix, count));
-    incGrafCount(**incMatrix, count);
+
+    int curEdge = 0;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < count; j++)
+        {
+            incMatrix[i][j] = 0;
+        }
+    }
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = i; j < SIZE; j++)
+        {
+            if (matrix[i][j] == 1)
+            {
+                incMatrix[i][curEdge] = 1;
+                incMatrix[j][curEdge] = 1;
+                curEdge++;
+            }
+        }
+    }
+
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < count; j++) {
+            printf("%d ", incMatrix[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Size of graf = %d\n\n", sizeOfIncGraph(incMatrix, count));
+    incGrafCount(incMatrix, count);
 
     return 0;
 }

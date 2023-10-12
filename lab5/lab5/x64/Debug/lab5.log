@@ -1,1 +1,5 @@
-﻿  lab5.vcxproj -> C:\Users\Arcalis\Documents\GitHub\Logic\lab5\x64\Debug\lab5.exe
+﻿  lab5.c
+C:\Users\Arcalis\Documents\GitHub\Logic\lab5\lab5\lab5.c(8,11): warning C4244: функция: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Arcalis\Documents\GitHub\Logic\lab5\lab5\lab5.c(51): warning C4716: grafCount: должна возвращать значение
+C:\Users\Arcalis\Documents\GitHub\Logic\lab5\lab5\lab5.c(138): warning C4716: incGrafCount: должна возвращать значение
+  lab5.vcxproj -> C:\Users\Arcalis\Documents\GitHub\Logic\lab5\x64\Debug\lab5.exe
