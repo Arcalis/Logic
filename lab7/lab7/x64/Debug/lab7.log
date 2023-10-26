@@ -1,0 +1,4 @@
+﻿  Main.cpp
+C:\Users\Arcalis\Documents\GitHub\Logic\lab7\lab7\Main.cpp(34,55): warning C4805: ==: небезопасное смешение типа "int" и типа "bool" в операции
+C:\Users\Arcalis\Documents\GitHub\Logic\lab7\lab7\Main.cpp(86,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  lab7.vcxproj -> C:\Users\Arcalis\Documents\GitHub\Logic\lab7\x64\Debug\lab7.exe
