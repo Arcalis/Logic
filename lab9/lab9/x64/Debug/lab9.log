@@ -1,0 +1,7 @@
+﻿  lab9.cpp
+C:\Users\Arcalis\Documents\GitHub\Logic\lab9\lab9\lab9.cpp(109,49): warning C4805: ==: небезопасное смешение типа "int" и типа "bool" в операции
+C:\Users\Arcalis\Documents\GitHub\Logic\lab9\lab9\lab9.cpp(149,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Arcalis\Documents\GitHub\Logic\lab9\lab9\lab9.cpp(212,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Arcalis\Documents\GitHub\Logic\lab9\lab9\lab9.cpp(231,10): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "int *"
+C:\Users\Arcalis\Documents\GitHub\Logic\lab9\lab9\lab9.cpp(231,10): warning C4313: printf: конфликт "%d" в строке формата с аргументом 1 типа "int *"
+  lab9.vcxproj -> C:\Users\Arcalis\Documents\GitHub\Logic\lab9\x64\Debug\lab9.exe

@@ -1,0 +1,5 @@
+﻿  Main.cpp
+C:\Users\Arcalis\Documents\GitHub\Logic\lab6\lab6\Main.cpp(105,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Arcalis\Documents\GitHub\Logic\lab6\lab6\Main.cpp(145,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Arcalis\Documents\GitHub\Logic\lab6\lab6\Main.cpp(163,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  lab6.vcxproj -> C:\Users\Arcalis\Documents\GitHub\Logic\lab6\x64\Debug\lab6.exe
