@@ -60,36 +60,109 @@ void printGraph(struct Graph* graph) {
     }
 }
 
-int identity(int** matrix,int** matrixNew, int vertexA, int vertexB, int count)
+int identity(int** matrix, int vertexA, int vertexB, int count)
 {
+    int** matrixNew = (int**)calloc(count - 1, sizeof(int*));
+    for (int i = 0; i < count - 1; i++)
+    {
+        matrixNew[i] = (int*)calloc(count - 1, sizeof(int));
+    }
+    int row = 0;
+    int col = 0;
     for (int i = 0; i < count; i++)
     {
-        matrix[i][vertexA] = (matrix[i][vertexA] || matrix[i][vertexB]);
-        matrix[vertexA][i] = (matrix[vertexA][i] || matrix[vertexB][i]);
-    } 
-    
-    for (int i = 0; i < count-1; i++)
-    {
-        for (int j = 0; j < count-1; j++)
+        for (int j = 0; j < count; j++)
         {
-            if (i == vertexA)
-                matrixNew[i][j] = matrix[i][j];
-            else if (j == vertexA)
-                matrixNew[i][j] = matrix[i][j];
-            else if(i != vertexB and j != vertexB)
-                matrixNew[i][j] = matrix[i][j];
+            if (i != vertexA and i != vertexB and j != vertexA and j != vertexB)
+            {
+                matrixNew[row][col] = matrix[i][j];
+                col++;
+                //printf("%d ", matrix[i][j]);
+            }            
+        }
+        if (i != vertexA and i != vertexB)
+        {
+            //printf("\n");
+            col = 0;
+            row++;
         }
     }
-    count -= 1;
+    //printf("\n");
+
+    row = 0;
+    col = 0;
+
+    for (int i = 0; i < count; i++)
+    {
+        if (i != vertexA and i != vertexB)
+        {
+            matrixNew[row][count - 2] = matrix[vertexA][i] || matrix[vertexB][i];
+            matrixNew[count - 2][col] = matrix[i][vertexA] || matrix[i][vertexB];
+            row++;
+            col++;
+        }
+        else
+        {
+            matrixNew[count - 2][count - 2] = matrix[vertexA][vertexB];
+        }
+    }
+
+    for (int i = 0; i < count-1; i++) {
+        for (int j = 0; j < count-1; j++) {
+            printf("%d ", matrixNew[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\n");
+
+    count--;
+
+    delete[] matrix;
+    matrix = matrixNew;
+    
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = 0; j < count - 1; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
     return count;
 }
-int redefinition(int** matrixNew, int** matrix, int count)
+
+int tightening(int** matrix, int vertexA, int vertexB, int count)
 {
-    for (int i = 0; i < count; i++)
-        for (int j = 0; j < count; j++)
-            matrix[i][j] = matrixNew[i][j];
-    free(matrixNew);
-    return 0;
+    matrix[vertexA][vertexB] = 0;
+    matrix[vertexB][vertexA] = 0;
+    count = identity(matrix, vertexA, vertexB, count);
+
+    return count;
+}
+
+int splitting(int** matrix, int vertex, int count)
+{
+
+    int** matrixNew = (int**)calloc(count++, sizeof(int*));
+    for (int i = 0; i < count - 1; i++)
+    {
+        matrixNew[i] = (int*)calloc(count++, sizeof(int));
+    }
+
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < count; j++) {
+            matrixNew[i][j] = matrix[i][j];
+        }
+    }
+
+    for (int i = 0; i < count; i++) {
+        matrixNew[i][count] = matrix[i][vertex];
+        matrixNew[count][i] = matrix[vertex][i];
+    }
+    matrixNew[count++][count++] = 0;
+    count++;
+    matrix = matrixNew;
+    return count;
 }
 
 int main() {
@@ -181,29 +254,16 @@ int main() {
     printf("\n");
 
     //Задание 2.1
-    int vertexA, vertexB;
-
-    int** matrixNew1 = (int**)calloc(count1, sizeof(int*));
-    for (int i = 0; i < count1 - 1; i++)
-    {
-        matrixNew1[i] = (int*)calloc(count1, sizeof(int));
-    }
-
-    int** matrixNew2 = (int**)calloc(count2, sizeof(int*));
-    for (int i = 0; i < count2 - 1; i++)
-    {
-        matrixNew2[i] = (int*)calloc(count2, sizeof(int));
-    }
+    int vertexA, vertexB, vertexSpl;
 
     bool ready = true;
 
     while (ready)
     {
-        system("cls");
 
-        printGraph(graph1);
+        /*printGraph(graph1);
         printf("\n");
-        printGraph(graph2);
+        printGraph(graph2);*/
         printf("\n\n");
 
 
@@ -235,33 +295,30 @@ int main() {
         case 1: 
             printf("\nВведите нужные вершины:");
             scanf("%d %d", &vertexA, &vertexB);
-            count1 = identity(matrix1, matrixNew1, vertexA, vertexB, count1);
-            count2 = identity(matrix2, matrixNew2, vertexA, vertexB, count2);
-            for (int i = 0; i < count1; i++) {
-                for (int j = 0; j < count1; j++) {
-                    printf("%d ", matrixNew1[i][j]);
-                }
-                printf("\n");
-            }
-            
-            matrix1 = matrixNew1;
-            free(matrixNew1);
-            matrix2 = matrixNew2;
-            free(matrixNew2);
-
-            //redefinition(matrixNew1, matrix1, count1);
-            //redefinition(matrixNew2, matrix2, count2);
+            vertexA--;
+            vertexB--;
+            count1 = identity(matrix1, vertexA, vertexB, count1);
+            count2 = identity(matrix2, vertexA, vertexB, count2);
             break;
         case 2:
+            printf("\nВведите вершины между которыми стянуть ребро:");
+            scanf("%d %d", &vertexA, &vertexB);
+            vertexA--;
+            vertexB--;
+            count1 = tightening(matrix1, vertexA--, vertexB--, count1);
+            count2 = tightening(matrix2, vertexA--, vertexB--, count2);
             break;
         case 3:
+            printf("\nВведите вершинe которую хотите расщепить:");
+            scanf("%d", &vertexSpl);
+            vertexSpl--;
+            count1 = splitting(matrix1, vertexSpl--, count1);
+            count2 = splitting(matrix2, vertexSpl--, count2);
             break;
         default:
             printf("Введите еще раз");
             break;
         }
-
-        system("clear");
     }
 
 }

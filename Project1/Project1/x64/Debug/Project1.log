@@ -1,2 +1,0 @@
-﻿Source.obj : error LNK2019: ссылка на неразрешенный внешний символ "int __cdecl fun(int)" (?fun@@YAHH@Z) в функции main.
-C:\Users\Arcalis\Documents\GitHub\Logic\Project1\x64\Debug\Project1.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
