@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5d3a487a-bd7d-4f38-bb41-832c6a8655bb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../lab6/.vs/lab6/FileContentIndex/c393f6c2-715c-4a9f-a2d4-010d09cfd5e8.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/.vs/lab6/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/.vs/lab6/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/.vs/lab6/v17/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/.vs/lab6/v17/Browse.VC.db" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2ZGxYYFWB0GGNYtT8JUet8Q4iFg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Arcalis/Documents/GitHub/Logic/Cursed"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d3a487a-bd7d-4f38-bb41-832c6a8655bb" name="Changes" comment="" />
+      <created>1702062264994</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702062264994</updated>
+    </task>
+    <servers />
+  </component>
+</project>
